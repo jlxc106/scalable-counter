@@ -21,7 +21,11 @@ function App() {
   }, []);
 
   function getCount() {
-    fetch("http://localhost:5000/api/item")
+    fetch("http://localhost:5000/api/item", {
+      headers: {
+        'counter-increment': 1
+      }
+    })
       .then((response) => response.json())
       .then((body) => {
         setCount(body.count)
