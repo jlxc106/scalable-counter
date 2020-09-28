@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 from flask_redis import FlaskRedis
-from flask_cors import CORS
+from flask_cors import CORS 
 
 redis_client = FlaskRedis()
 

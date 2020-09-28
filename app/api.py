@@ -1,6 +1,6 @@
 import functools
 
-from flask import (
+from flask import ( 
     Blueprint, jsonify
     # , flash, g, redirect, render_template, request, session, url_for
 )
@@ -24,7 +24,7 @@ def getItem():
         redis_client.set(key, 1)
         c = 1
     else:
-        c = int(c)
-        redis_client.set(key, c+1)
+        c = int(c)+1
+        redis_client.set(key, c)
     d = {"count": c}
     return jsonify(d)
