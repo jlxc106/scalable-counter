@@ -14,7 +14,7 @@ bp = Blueprint('api', __name__, url_prefix='/api')
 @bp.route('/item', methods=('GET', ))
 def getItem():
     ci_headerKey = "counter-increment"
-    ci_headerVal = request.headers.get(ci_headerKey)
+    ci_headerVal = request.headers.get(ci_headerKey) if request.headers.get(ci_headerKey) else 0
     # print("counter-increment value: ", ci_headerVal)
     start = time()
     key = "count1"
@@ -28,7 +28,7 @@ def getItem():
     redis_client.set(key, c)
     d = {"count": c}
     end = time()
-    print(f"{end - start} seconds to run /api/item")
+    # print(f"{end - start} seconds to run /api/item")
     db_c = 10
     
     #hincrby - hash increment by amount
